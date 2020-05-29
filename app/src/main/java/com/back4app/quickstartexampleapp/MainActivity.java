@@ -2,16 +2,14 @@ package com.back4app.quickstartexampleapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParseUser;
-import com.parse.SignUpCallback;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -37,6 +35,12 @@ public class MainActivity extends AppCompatActivity
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         credentials = new HomeScreen(this);
+    }
+
+    /* From Stack Overflow */
+    public void hideKeyboard(View v) {
+        InputMethodManager inputMethodManager =(InputMethodManager) (getSystemService(INPUT_METHOD_SERVICE));
+        inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
     }
 
     public void getInfo()
