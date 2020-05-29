@@ -1,5 +1,7 @@
 package com.back4app.quickstartexampleapp;
 
+import android.util.Log;
+
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -8,6 +10,7 @@ import com.parse.SignUpCallback;
 class HomeScreen
 {
     private MainActivity main_activity;
+    boolean res;
 
     HomeScreen(MainActivity main_activity) {
         this.main_activity = main_activity;
@@ -26,7 +29,11 @@ class HomeScreen
         user.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
-                if (e == null) main_activity.showToast("Sign up complete!");
+                if (e == null)
+                {
+                    main_activity.showToast("Sign up complete!");
+                    main_activity.startActivity(main_activity.intent);
+                }
                 else main_activity.showToast(e.getMessage());
             }
         });
@@ -37,8 +44,13 @@ class HomeScreen
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
-                if (e == null) main_activity.showToast("Log in complete!");
-                else main_activity.showToast(e.getMessage());
+                if (user != null) {
+                    main_activity.showToast("Log in complete!");
+                    main_activity.startActivity(main_activity.intent);
+                }
+                else {
+                    main_activity.showToast(e.getMessage());
+                }
             }
         });
     }
