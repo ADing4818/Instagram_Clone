@@ -3,8 +3,8 @@
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
 
     <!-- Change the following strings as required -->
-    <string name="back4app_app_id">kQyP5G6RxJDLDyngrLJjD32qQgEXJmayUo8RbdVc</string>
-    <string name="back4app_client_key">QBhfzWBHpBK5xuIqmRejyVKoV3IcbyVmT2ewdf02</string>
+    <string name="back4app_app_id">PSuHwGW3oJR2pB06vYTAcX3tDp2o0TA5Y4S26xFA</string>
+    <string name="back4app_client_key">TzPOnrbxq19somyVn8t1ncm48p77AM9bq7f7ysYk</string>
 
     <string name="app_name">Instagram Clone</string>
 

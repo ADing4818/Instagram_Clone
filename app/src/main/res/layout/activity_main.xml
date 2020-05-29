@@ -6,14 +6,78 @@
     android:layout_height="match_parent"
     tools:context="com.back4app.quickstartexampleapp.MainActivity">
 
-    <TextView
-        android:id="@+id/txt_hello"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/iggradient" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="75dp"
+            android:alpha="0.7"
+            android:fontFamily="@font/berkshire_swash"
+            android:text="Instagram"
+            android:textAlignment="center"
+            android:textSize="45sp" />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="65dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:text="" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:alpha="0.5"
+            android:background="@android:color/white"
+            android:onClick="login_button"
+            android:text="Log In"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="305dp"
+            android:alpha="0.5"
+            android:background="@android:color/white"
+            android:onClick="signup_button"
+            android:text="New to Instagram? Sign Up here."
+            android:textAllCaps="false" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
