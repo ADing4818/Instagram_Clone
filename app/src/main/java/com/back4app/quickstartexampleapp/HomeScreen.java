@@ -10,7 +10,6 @@ import com.parse.SignUpCallback;
 class HomeScreen
 {
     private MainActivity main_activity;
-    boolean res;
 
     HomeScreen(MainActivity main_activity) {
         this.main_activity = main_activity;
@@ -29,8 +28,7 @@ class HomeScreen
         user.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
-                if (e == null)
-                {
+                if (e == null) {
                     main_activity.showToast("Sign up complete!");
                     main_activity.startActivity(main_activity.intent);
                 }
@@ -39,13 +37,18 @@ class HomeScreen
         });
     }
 
-    void login(String username, String password)
+    void login(final String username, String password)
     {
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if (user != null) {
                     main_activity.showToast("Log in complete!");
+                    main_activity.login_username = user.getUsername();
+
+                    Log.i("object username", main_activity.login_username);
+
+                    main_activity.intent.putExtra("username", main_activity.login_username);
                     main_activity.startActivity(main_activity.intent);
                 }
                 else {
