@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -32,6 +34,8 @@ public class UserListActivity extends AppCompatActivity
     List<String> user_list;
     ArrayAdapter<String> adapter;
     Intent intent;
+    Intent intent_to_feed;
+    Intent intent_to_homepage;
     String username;
 
     @Override
@@ -39,6 +43,7 @@ public class UserListActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
+        setTitle("User List");
 
         my_listView = findViewById(R.id.listView);
         user_list = new ArrayList<>();
@@ -58,7 +63,17 @@ public class UserListActivity extends AppCompatActivity
         my_listView.setAdapter(adapter);
 
         intent = getIntent();
+        intent_to_feed = new Intent(getApplicationContext(), UserFeedActivity.class);
+        intent_to_homepage = new Intent(getApplicationContext(), MainActivity.class);
         username = intent.getStringExtra("username");
+
+        my_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                intent_to_feed.putExtra("user_feed", user_list.get(i));
+                startActivity(intent_to_feed);
+            }
+        });
     }
 
     /* Creates Menu tab */
@@ -94,6 +109,10 @@ public class UserListActivity extends AppCompatActivity
                 requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
             }
             else getPhoto();
+        }
+        else if (item.getItemId() == R.id.logout) {
+            ParseUser.logOut();
+            startActivity(intent_to_homepage);
         }
         return super.onOptionsItemSelected(item);
     }

@@ -5,4 +5,8 @@
         android:title="@string/share"
         android:id="@+id/share" />
 
+    <item
+        android:title="logout"
+        android:id="@+id/logout" />
+
 </menu>
