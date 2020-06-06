@@ -40,7 +40,7 @@ public class UserFeedActivity extends AppCompatActivity {
          */
         ParseQuery<ParseObject> query_feed = new ParseQuery<>("Images");
         query_feed.whereEqualTo("username", user_feed);
-        query_feed.addDescendingOrder("createdAt");
+        query_feed.addAscendingOrder("createdAt");
 
         /* Finds all the pictures that was uploaded by the user, converts it to a Bitmap, which is then
            set by the imageview(s) created in the linear (vertical) layout.
