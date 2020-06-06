@@ -51,6 +51,7 @@ public class UserFeedActivity extends AppCompatActivity {
                 if ((objects.size() > 0) && (e == null)) {
                     for (ParseObject item : objects) {
                         ParseFile file = (ParseFile)(item.get("image"));
+                        assert file != null;
                         file.getDataInBackground(new GetDataCallback() {
                             @Override
                             public void done(byte[] data, ParseException e) {
